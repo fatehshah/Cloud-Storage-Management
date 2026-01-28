@@ -1,8 +1,5 @@
 # ☁️ CloudDrive – Cloud Storage Management System
 
-![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
-![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black.svg)
-
 A secure and user-friendly **Cloud Storage Management System** built using **Python + Flask**.  
 This project provides cloud-like functionality where users can **upload, download, manage, and organize files** through a modern drive-style interface.
 
@@ -94,3 +91,4 @@ Internship Project – CloudDrive (Cloud Storage Management System)
 GitHub: [fatehshah](https://github.com/fatehshah)
 
 ---
+
