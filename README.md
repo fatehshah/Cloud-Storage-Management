@@ -74,7 +74,7 @@ This project was developed as a practical implementation of a real-world **Cloud
 
 ---
 
-## 🚀 Future Enhancements
+## 🚀 Future Improvements:
 
 - Database Support (PostgreSQL / MySQL)
 - Cloud Deployment (AWS / Render / Heroku)
@@ -87,8 +87,9 @@ This project was developed as a practical implementation of a real-world **Cloud
 ## 👨‍💻 Author
 
 **Fateh Shah**  
-Internship Project – CloudDrive (Cloud Storage Management System)  
+3rd Semester Project – CloudDrive (Cloud Storage Management System)  
 GitHub: [fatehshah](https://github.com/fatehshah)
 
 ---
+
 
