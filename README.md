@@ -10,22 +10,32 @@ This project provides cloud-like functionality where users can **upload, downloa
 
 ---
 
-## 📌 Project Description
+## 📌 Project Overview
 
-The **Cloud Storage Management System** is a web-based application inspired by platforms like **Google Drive** and **Dropbox**.  
-It helps users store files safely, organize storage, and share data with others through a simple interface.
-
-This project demonstrates skills in:
-
-✅ Flask Backend Development  
-✅ Authentication & Security  
-✅ File Handling & Storage Management  
-✅ RESTful APIs  
-✅ Full-Stack Web Application Design  
+| Item | Details |
+|------|---------|
+| **Project Name** | Cloud Storage Management System |
+| **Inspired By** | Google Drive, Dropbox |
+| **Tech Stack** | Python, Flask, HTML, CSS, JavaScript |
+| **Core Features** | Upload, Download, Folder Management, File Sharing |
+| **Security** | Login/Signup Authentication + Profile Settings |
+| **Purpose** | Internship Portfolio / Full-Stack Project |
 
 ---
 
-## ✨ Features
+## ✅ Skills Demonstrated
+
+| Area | What This Project Shows |
+|------|--------------------------|
+| Backend Development | Flask routing, REST APIs, file handling |
+| Authentication & Security | User login/signup + protected access |
+| Storage Management | Upload, delete, organize files/folders |
+| Full-Stack Design | Responsive UI + backend integration |
+| Practical Cloud Concepts | Real-time file management system |
+
+---
+
+## ✨ Key Features
 
 ✅ User Registration & Login System  
 ✅ Secure File Upload and Download  
@@ -34,10 +44,6 @@ This project demonstrates skills in:
 ✅ Organized Folder Storage  
 ✅ REST API Support  
 ✅ Responsive Web Interface  
-
----
-
-## 🖼️ Demo Preview (GIF)
 
 ---
 
@@ -57,7 +63,19 @@ This project demonstrates skills in:
 
 ---
 
+## 🚀 Future Improvements
 
-```md
-![Demo GIF](assets/demo.gif)
+- Add Database Support (PostgreSQL / MySQL)
+- Cloud Deployment (AWS / Render / Heroku)
+- Role-Based File Sharing Permissions
+- Add Activity Logs & Notifications
 
+---
+
+## 👨‍💻 Author
+
+**Fateh Shah**  
+Internship Project – Cloud Storage Management System  
+GitHub: [fatehshah](https://github.com/fatehshah)
+
+---
