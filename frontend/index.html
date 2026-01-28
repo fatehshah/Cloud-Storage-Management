@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudDrive - File Manager</title>
+  <link rel="stylesheet" href="./css/style.css">
+   <script>
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "login.html";
+  }
+</script>
+
+</head>
+ 
+<body>
+ 
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">☁️</div>
+      <div>
+        <div class="brand-title">CloudDrive</div>
+        <div class="brand-sub">Your Secure Cloud Storage</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <div class="searchbox">
+  🔎 <input id="searchInput" type="text" placeholder="Search files..." />
+</div>
+<!-- sorting -->
+<div class="sortbox">
+  <select id="sortBy" title="Sort By">
+    <option value="name">Sort: Name</option>
+    <option value="size">Sort: Size</option>
+    <option value="type">Sort: Type</option>
+    <option value="date">Sort: Date Added</option>
+    <option value="modified">Sort: Date Modified</option>
+  </select>
+
+  <select id="order" title="Order">
+    <option value="asc">Asc</option>
+    <option value="desc">Desc</option>
+  </select>
+</div>
+
+      <button id="refreshBtn" class="iconbtn">⟳</button>
+      <button id="pasteBtn" class="hidden">Paste</button>
+      <button id="cancelCopyBtn" class="hidden danger">Cancel Copy</button>
+
+      <div class="account">
+        <img id="topAvatarImg" class="avatar" alt="Avatar" style="display:none;" />
+
+        <div class="avatar dev-emoji" id="devEmoji">
+  <div class="dev-headphones"></div>
+
+  <div class="dev-face">
+    <div class="dev-glasses">
+      <div class="dev-eye eye" data-eye="left">
+        <div class="dev-pupil pupil"></div>
+      </div>
+
+      <div class="dev-eye eye" data-eye="right">
+        <div class="dev-pupil pupil"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dev-keyboard">
+    <div class="dev-keys"></div>
+  </div>
+</div>
+
+        <div>
+          <div class="acc-name" id="accName">Account</div>
+          <div class="acc-sub">Account</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST (under account top right) -->
+  <div id="toast" class="toast hidden">
+  <span class="toast-msg"></span>
+  <div class="toast-bar"></div>
+</div>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="card">
+        <div class="card-title">Storage</div>
+        <div class="progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div id="storageText" style="margin-top:10px;color:#555;font-weight:600">0 MB / 10 GB</div>
+      </div>
+      
+      <!-- ACTIONS -->
+
+      <button class="btn primary" id="uploadBtn">⬆ Upload Files</button>
+    
+
+      <button class="btn" id="newFolderBtn">📁 New Folder</button>
+      <button type="button" class="btn" id="settingsBtn">⚙️ Settings</button>
+
+      <input id="fileInput" type="file" hidden multiple/>
+      
+
+
+      <button id="backBtn" class="btn ghost backbtn">⬅ Back</button>
+
+      <div class="nav">
+          <button class="btn danger" id="logoutBtn">🚪 Logout</button>
+        <button class="nav-item active" data-view="all">📦 All Files</button>
+        <button class="nav-item" data-view="images">🖼 Images</button>
+        <button class="nav-item" data-view="videos">🎥 Videos</button>
+        <button class="nav-item" data-view="audio">🎵 Audio</button>
+        <button class="nav-item" data-view="docs">📄 Docs</button>
+        <button class="nav-item" data-view="favourites">❤️ Favourites</button>
+        <button class="nav-item" data-view="trash">🗑 Trash</button>
+      </div>
+
+     
+
+      <div class="tip">
+        <b>Tip:</b> Its a simple Storage Manager to manage your files.
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="content-head">
+        <div>
+          <div class="title" id="pageTitle">My Drive</div>
+          <div class="crumbs" id="crumbs">/</div>
+        </div>
+
+        <!-- Trash actions -->
+        <div id="trashActions" class="trash-actions hidden">
+               <button id="emptyTrashBtn" class="iconbtn danger">Empty Trash</button>
+               <button id="restoreAllBtn" class="iconbtn primary">Restore All</button>
+              </div>
+      </div>
+
+      <div id="filesGrid" class="grid"></div>
+    </div>
+  </div>
+
+  <!-- VIEWER MODAL -->
+  <div id="viewerModal">
+    <div class="viewer-box">
+      <div class="viewer-head">
+        <div class="viewer-title" id="viewerTitle">File</div>
+        <div style="display:flex;gap:10px;">
+          <button id="zoomInBtn" class="iconbtn">+</button>
+          <button id="zoomOutBtn" class="iconbtn">-</button>
+          <button id="closeViewerBtn" class="iconbtn danger">✖</button>
+        </div>
+      </div>
+      <div id="viewerBody" class="viewer-body"></div>
+    </div>
+  </div>
+
+  <!-- CONFIRM MODAL (Hidden by default, never auto opens) -->
+  <div id="confirmModal" class="modal hidden">
+
+    <div class="modal-box">
+      <div id="confirmTitle" class="modal-title">Confirm</div>
+      <div id="confirmText" class="modal-body">Are you sure?</div>
+        <input id="confirmInput" class="modal-input hidden" />
+      <div class="modal-actions">
+        <button id="confirmCancelBtn" class="btn">Cancel</button>
+        <button id="confirmOkBtn" class="btn danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div> <!-- end confirmModal -->
+</div>  <!-- end layout -->
+
+<div id="shareModal" class="hidden" style="
+  position:fixed; inset:0; background:rgba(0,0,0,.55);
+  display:flex; align-items:center; justify-content:center; z-index:9999;">
+
+  <div style="background:#fff; padding:18px; width:360px; border-radius:10px;">
+    <h3 style="margin:0 0 10px;">Share</h3>
+
+    <label>Permission</label>
+    <select id="sharePermission" style="width:100%; padding:8px; margin:6px 0 12px;">
+      <option value="view">Viewer</option>
+      <option value="download">Viewer + Download</option>
+      <option value="upload">Editor (Upload to folder)</option>
+    </select>
+
+    <label>Expiry (minutes, optional)</label>
+    <input id="shareExpiry" type="number" placeholder="e.g. 60" style="width:100%; padding:8px; margin:6px 0 12px;">
+
+    <button id="shareCreateBtn" style="width:100%; padding:10px;">Create link</button>
+
+    <input id="shareLinkBox" readonly style="width:100%; padding:8px; margin:12px 0;">
+
+    <button id="shareCopyBtn" style="width:100%; padding:10px;">Copy</button>
+    <button id="shareCloseBtn" style="width:100%; padding:10px; margin-top:8px;">Close</button>
+  </div>
+</div>
+
+<!-- DETAILS MODAL -->
+<div id="detailsModal" class="modal hidden">
+  <div class="modal-box" style="max-width:420px;">
+    <div class="modal-title" style="display:flex;justify-content:space-between;align-items:center;">
+      <span id="detailsTitle">Details</span>
+      <button id="detailsCloseBtn" class="iconbtn danger">✖</button>
+    </div>
+
+    <div id="detailsBody" class="modal-body" style="line-height:1.7;"></div>
+  </div>
+</div>
+<!-- ✅ Floating Upload Progress (Bottom Right) -->
+<div id="uploadPanel" class="upload-panel hidden">
+  <div class="upload-head">
+    <div class="upload-title">Uploading…</div>
+    <button id="uploadCloseBtn" class="iconbtn danger" title="Hide">✖</button>
+  </div>
+
+  <div id="uploadList" class="upload-list"></div>
+</div>
+<div id="bulkBar" class="hidden">
+  <span id="bulkCount">0 selected</span>
+
+  <button id="bulkCopy">Copy</button>
+  <button id="bulkCut">Cut</button>
+  <button id="bulkDelete">Delete</button>
+  <button id="bulkRestore">Restore</button>
+
+  <button id="bulkClear">Clear</button>
+</div>
+
+
+<script src="./js/app.js?v=1" defer></script>
+</body>
+</html>

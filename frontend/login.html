@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - CloudDrive</title>
+
+  <!-- Main styles + auth styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="icon" href="data:,">
+</head>
+<body class="auth-body">
+<body class="auth-body auth-center">
+
+  <div class="auth-container">
+    <!-- LEFT SIDE: Characters that follow mouse -->
+    <div class="auth-visual">
+      <div class="characters">
+        <div class="character char-orange" data-depth="10">
+          <div class="eyes">
+            <div class="eye"><div class="eye-pupil"></div></div>
+            <div class="eye"><div class="eye-pupil"></div></div>
+          </div>
+        </div>
+
+        <div class="character char-purple" data-depth="16">
+          <div class="eyes">
+            <div class="eye"><div class="eye-pupil"></div></div>
+            <div class="eye"><div class="eye-pupil"></div></div>
+          </div>
+        </div>
+
+        <div class="character char-black" data-depth="20">
+          <div class="eyes">
+            <div class="eye"><div class="eye-pupil"></div></div>
+            <div class="eye"><div class="eye-pupil"></div></div>
+          </div>
+        </div>
+
+        <div class="character char-yellow" data-depth="14">
+          <div class="eyes">
+            <div class="eye"><div class="eye-pupil"></div></div>
+            <div class="eye"><div class="eye-pupil"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Login form -->
+    <div class="auth-card">
+      <div class="auth-logo">☁️</div>
+      <h1 class="auth-title">Welcome back!</h1>
+      <p class="auth-subtitle">Please enter your details</p>
+
+      <form id="loginForm" class="auth-form">
+        <label class="auth-label" for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          class="auth-input"
+          placeholder="Enter your username"
+          autocomplete="username"
+          required
+        />
+
+        <label class="auth-label" for="password">Password</label>
+        <div class="auth-input-wrapper">
+          <input
+            id="password"
+            type="password"
+            class="auth-input"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          />
+          <button type="button" class="toggle-password" id="togglePassword">👁</button>
+        </div>
+
+        <div class="auth-row">
+          <label class="auth-checkbox">
+            <input type="checkbox" id="rememberMe" />
+            <span>Remember for 30 days</span>
+          </label>
+          <!-- You can hook "forgot password" later -->
+          <button type="button" class="auth-link-btn" disabled>Forgot password?</button>
+        </div>
+
+        <button type="submit" class="auth-btn-primary" id="loginBtn">
+          Log In
+        </button>
+
+        <p id="loginResult" class="auth-result"></p>
+      </form>
+
+      <div class="auth-divider">
+        <span></span>
+        <span>Or</span>
+        <span></span>
+      </div>
+
+      <button class="auth-btn-secondary" id="signupRedirect">
+        New user? Sign up
+      </button>
+
+      <p class="auth-footer-text">
+        Don’t have an account?
+        <a href="signup.html" class="auth-link">Sign up here</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/login.js" defer></script>
+</body>
+</html>

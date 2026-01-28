@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - CloudDrive</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/settings.css?v=999">
+
+
+  <link rel="icon" href="data:,">
+</head>
+
+<body class="settings-body">
+
+  <div class="settings-shell">
+    <header class="settings-header">
+      <div class="settings-title">
+        <div class="settings-icon">⚙️</div>
+        <div>
+          <h1>Settings</h1>
+          <p class="settings-subtitle">Manage your profile and security</p>
+        </div>
+      </div>
+
+      <div class="settings-actions">
+        <button class="settings-btn" id="backToDriveBtn">← Back to Drive</button>
+      </div>
+    </header>
+
+    <div class="settings-layout">
+      <!-- LEFT NAV -->
+      <aside class="settings-nav">
+        <button class="nav-item active" data-tab="profile">👤 Profile</button>
+        <button class="nav-item" data-tab="security">🔒 Security</button>
+        <button class="nav-item" data-tab="twofa">🛡️ 2-Step Verification</button>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="settings-content">
+
+        <!-- PROFILE TAB -->
+        <section class="tab-panel active" id="tab-profile">
+          <h2>Profile</h2>
+          <p class="tab-desc">Update your personal information and avatar.</p>
+
+       <div class="settings-card">
+            <div class="profile-top">
+              <div class="avatar-wrap">
+                <img id="avatarPreview" class="avatar" alt="Profile picture" />
+                <div class="avatar-fallback" id="avatarFallback">👤</div>
+              </div>
+
+              <div class="avatar-actions">
+                <label class="settings-btn secondary">
+                  Upload picture
+                  <input type="file" id="avatarInput" accept="image/*" hidden>
+                </label>
+                <button class="settings-btn danger" id="removeAvatarBtn">Remove</button>
+                <small class="hint">Saved locally for now (demo). Later you can upload to backend.</small>
+              </div>
+            </div>
+
+          <div class="settings-grid">
+
+              <div class="field">
+                <label>Username</label>
+                <input id="setUsername" class="input" type="text" disabled />
+              </div>
+
+              <div class="field">
+                <label>First Name</label>
+                <input id="setFirstName" class="input" type="text" placeholder="First name" />
+              </div>
+
+              <div class="field">
+                <label>Last Name</label>
+                <input id="setLastName" class="input" type="text" placeholder="Last name" />
+              </div>
+
+              <div class="field">
+                <label>Email</label>
+                <input id="setEmail" class="input" type="email" placeholder="Email (optional)" />
+              </div>
+
+              <div class="field">
+                <label>Phone</label>
+                <input id="setPhone" class="input" type="tel" placeholder="Phone (optional)" />
+              </div>
+
+              <div class="field">
+                <label>Date of Birth</label>
+                <input id="setDob" class="input" type="date" />
+                <small class="hint" id="dobHint"></small>
+              </div>
+
+              <div class="field">
+                <label>Gender</label>
+                <select id="setGender" class="input">
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Drive Mode</label>
+                <select id="setDriveMode" class="input">
+                  <option value="private">Private Drive (no share)</option>
+                  <option value="share">Share-enabled Drive</option>
+                </select>
+                <small class="hint">This controls UI visibility for Share button.</small>
+              </div>
+            </div>
+
+            <div class="row-actions">
+              <button class="settings-btn primary" id="saveProfileBtn">Save Profile</button>
+              <span class="msg" id="profileMsg"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURITY TAB -->
+        <section class="tab-panel" id="tab-security">
+          <h2>Security</h2>
+          <p class="tab-desc">Change your password and protect your account.</p>
+
+        <div class="settings-card">
+            <h3>Change Password</h3>
+          <div class="settings-grid">
+
+              <div class="field">
+                <label>Current Password</label>
+                <input id="curPass" class="input" type="password" placeholder="Current password" />
+              </div>
+              <div class="field">
+                <label>New Password</label>
+                <input id="newPass" class="input" type="password" placeholder="New password" />
+              </div>
+              <div class="field">
+                <label>Confirm New Password</label>
+                <input id="newPass2" class="input" type="password" placeholder="Confirm new password" />
+              </div>
+            </div>
+
+            <div class="row-actions">
+              <button class="settings-btn primary" id="changePasswordBtn">Change Password</button>
+              <span class="msg" id="passMsg"></span>
+            </div>
+
+            <div class="notice">
+              <b>Note:</b> Password change is UI-only right now. When you add backend endpoint, we’ll connect it here.
+            </div>
+          </div>
+        </section>
+
+        <!-- 2FA TAB -->
+        <section class="tab-panel" id="tab-twofa">
+          <h2>2-Step Verification</h2>
+          <p class="tab-desc">Add an extra layer of security to your account.</p>
+
+        <div class="settings-card">
+            <div class="twofa-row">
+              <div>
+                <h3 style="margin:0;">Enable 2-Step Verification</h3>
+                <p class="hint" style="margin:6px 0 0;">UI toggle for now. Later you can implement OTP/email verification.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" id="twoFaToggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="twofa-box" id="twoFaBox">
+             <div class="settings-grid">
+
+                <div class="field">
+                  <label>Method</label>
+                  <select id="twoFaMethod" class="input">
+                    <option value="sms">SMS (phone OTP)</option>
+                    <option value="email">Email OTP</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label>Status</label>
+                  <input id="twoFaStatus" class="input" type="text" disabled />
+                </div>
+              </div>
+
+              <div class="row-actions">
+                <button class="settings-btn primary" id="saveTwoFaBtn">Save 2FA Settings</button>
+                <span class="msg" id="twoFaMsg"></span>
+              </div>
+
+              <div class="notice">
+                <b>Coming soon:</b> OTP verification + backup codes + trusted devices.
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/settings.js" defer></script>
+</body>
+</html>
