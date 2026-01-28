@@ -8,7 +8,7 @@ This project provides cloud-like functionality where users can **upload, downloa
 
 ---
 
-## 📌 Project Overview
+## 📖 Project Overview
 
 | Item | Details |
 |------|---------|
@@ -25,7 +25,7 @@ This project provides cloud-like functionality where users can **upload, downloa
 
 ---
 
-## 🛠️ Technical Highlights
+## ⚙️ Technical Highlights
 
 This project was developed as a practical implementation of a real-world **Cloud Storage Platform**.
 
@@ -44,21 +44,16 @@ This project was developed as a practical implementation of a real-world **Cloud
 - Responsive dashboard interface inspired by Google Drive
 - Search and sorting for better file navigation
 - Profile & settings page for user information
-
-### ✅ Software Engineering Practices
-- Clean repo structure (frontend + backend separation)
-- Proper README with screenshots/assets
-- Scalable design (easy to extend with database & deployment)
-
+  
 ---
 
-## ✨ Key Features
+## ✅ Key Features
 
 ✅ User Registration & Login System  
 ✅ Secure File Upload & Download  
 ✅ Delete & Manage Stored Files  
 ✅ Folder Organization  
-✅ Favorites (like) system ❤️  
+✅ Favorites (like) system 
 ✅ File Categories (Images / Videos / Audio / Docs)  
 ✅ Search + Sorting  
 ✅ Responsive Web Interface  
@@ -66,23 +61,23 @@ This project was developed as a practical implementation of a real-world **Cloud
 
 ---
 
-## 📸 Project Screenshots
+## 🖼️ Project Screenshots
 
-### 🔐 Login Page
+### Login Page
 ![Login Page](assets/login.png)
 
-### 📂 Dashboard (My Drive)
+### Dashboard (My Drive)
 ![Dashboard](assets/dashboard.png)
 
-### ⚙️ Profile & Settings
+### Profile & Settings
 ![Settings](assets/settings.png)
 
-### ⬆️ File Upload & Management
+### File Upload & Management
 ![Upload](assets/upload.png)
 
 ---
 
-## 🚀 Future Improvements
+## 🚀 Future Enhancements
 
 - Database Support (PostgreSQL / MySQL)
 - Cloud Deployment (AWS / Render / Heroku)
@@ -97,3 +92,5 @@ This project was developed as a practical implementation of a real-world **Cloud
 **Fateh Shah**  
 Internship Project – CloudDrive (Cloud Storage Management System)  
 GitHub: [fatehshah](https://github.com/fatehshah)
+
+---
