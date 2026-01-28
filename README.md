@@ -39,7 +39,25 @@ This project demonstrates skills in:
 
 ## 🖼️ Demo Preview (GIF)
 
-📌 *Add your project demo here (recommended)*
+---
+
+## 📸 Project Screenshots
+
+### 🔐 Login Page
+![Login Page](assets/login.png)
+
+### 📂 Dashboard (My Drive)
+![Dashboard](assets/dashboard.png)
+
+### ⚙️ Profile & Settings
+![Settings](assets/settings.png)
+
+### ⬆️ File Upload & Management
+![Upload](assets/upload.png)
+
+---
+
 
 ```md
 ![Demo GIF](assets/demo.gif)
+
