@@ -1,0 +1,57 @@
+{
+  "files": {
+    "Screenshot (13).png": {
+      "name": "Screenshot (13).png",
+      "path": "",
+      "size": 198022,
+      "type": "image"
+    },
+    "Screenshot (14).png": {
+      "name": "Screenshot (14).png",
+      "path": "",
+      "size": 193770,
+      "type": "image"
+    },
+    "Screenshot (15).png": {
+      "name": "Screenshot (15).png",
+      "path": "",
+      "size": 513999,
+      "type": "image"
+    },
+    "Screenshot (25).png": {
+      "name": "Screenshot (25).png",
+      "path": "",
+      "size": 206689,
+      "type": "image"
+    },
+    "Screenshot (26).png": {
+      "name": "Screenshot (26).png",
+      "path": "",
+      "size": 176570,
+      "type": "image"
+    },
+    "Screenshot (27).png": {
+      "name": "Screenshot (27).png",
+      "path": "",
+      "size": 195316,
+      "type": "image"
+    }
+  },
+  "trash": {},
+  "favourites": {
+    "data": {
+      "name": "data",
+      "path": "",
+      "type": "folder",
+      "size": 0,
+      "is_folder": true
+    },
+    "Screenshot (27).png": {
+      "name": "Screenshot (27).png",
+      "path": "",
+      "type": "image",
+      "size": 195316,
+      "is_folder": false
+    }
+  }
+}
